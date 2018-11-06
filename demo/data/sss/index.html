@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8" />
+	<title>乐闪派物流运输管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="__SKIN__/assets/css/bootstrap.css" />
+	<link rel="stylesheet" href="__SKIN__/assets/css/font-awesome.css" />
+	<!-- text fonts -->
+	<link rel="stylesheet" href="__SKIN__/assets/css/ace-fonts.css" />
+	<!-- ace styles -->
+	<link rel="stylesheet" href="__SKIN__/assets/css/ace.css" />
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="__SKIN__/assets/css/ace-part2.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="__SKIN__/assets/css/ace-rtl.css" />
+
+		<link rel="stylesheet" href="__SKIN__/assets/tgicon/iconfont.css">
+		<link rel="stylesheet" href="__SKIN__/assets/css/tgLog2.css">
+		<link rel="stylesheet" href="__SKIN__/assets/layer/theme/default/layer.css"/>
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="__SKIN__/assets/css/ace-ie.css" />
+		<![endif]-->
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="__SKIN__/assets/js/html5shiv.js"></script>
+		<script src="__SKIN__/assets/js/respond.js"></script>
+	<![endif]-->
+	<style type="text/css">
+			/*.input-icon>[class*="icon-"]{ top:3px;}
+			.alert{ padding:5px;}
+			.alert span{ padding-left:10px;}
+			button{ outline:none;}
+			.icon-logo{font-size: 30px; color: #fff; font-weight: bold;}
+			.mackes-title{ color: #fff;}
+			body.mackes-login{ background: url(/Images/admin-login-ad.jpg) no-repeat 50% 0; background-size:cover;}
+			.space-100{ height: 100px; line-height: 100px; clear: both;}
+			.login-layout .widget-box{ background:none;}*/
+			
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+				background-image: url(__SKIN__/images/tg.png);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+		</style>
+		<!--[if lte IE 8]>
+			<style>
+			.tg_log{
+				margin-left: -251px;
+				margin-top: -209px;
+			}	
+			</style>
+		<![endif]-->
+	</head>
+
+	<body class="login-layout mackes-login">
+		<div class="tg_bg">
+			<div class="tg_log log show">
+				<form id="signFrom" action="{:url('login/signin')}">
+					<p class="tg_title" style="color: #e93e4a;">太古可口可乐DMS</p>
+					<div class="tg_account">
+						<i class="glyphicon glyphicon-user"></i>
+						<input type="text" name="Username" class="account" id="Username" placeholder="账号">
+					</div>
+					<div class="tg_password">
+						<i class="glyphicon glyphicon-lock"></i>
+						<input type="password" class="account" id="Password" placeholder="密码" name="Password">
+					</div>
+					<div class="tg_code">
+						<i class="glyphicon glyphicon-asterisk"></i>
+						<input type="text" class="code" id="Code" name="Code" placeholder="请输入验证码">
+						<img src="" alt="" class="code_pic vcode">
+					</div>
+					<button type="submit" class="submit_btn">登&nbsp;&nbsp;&nbsp;录</button>
+				</form>
+				<!-- <span  class="reg_acc">注册新用户</span>
+					<span  class="pas_find">忘记密码?</span> -->
+				</div>
+			<!-- <div class="tg_log find_password">
+                <p class="tg_title">太古可口可乐DMS <span class="border_red"></span></p>
+                <p class="find_title">输入您注册时使用的邮箱地址找回密码</p>
+                <div class="tg_account">
+                    <span  class="glyphicon-envelope" aria-hidden="true"></span>
+                    <input type="text" class="account"  id="tg_account" placeholder="邮箱地址">
+                </div>
+                <div class="find_btn">发送验证邮件</div>
+                <span  class="return_log">返回登录</span>
+            </div>
+            <div class="tg_log reg_password">
+                <p class="tg_title reg_title">太古可口可乐DMS <span class="border_red"></span></p>
+                <p class="find_title">填写您的登录信息:</p>
+                <div class="tg_sel">
+                    <form action="" method="get">
+                        <label class="radio-inline">
+                          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 总仓
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> DC
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 承运商
+                        </label>
+                    </form> 
+                </div>
+                <div class="tg_account">
+                    <span  class="glyphicon-envelope" aria-hidden="true"></span>
+                    <input type="text" class="account"  id="tg_account" placeholder="登录邮箱">
+                </div>
+                <div class="tg_password">
+                    <i class="iconfont icon-mima"></i>
+                    <input type="password" class="account" id="tg_password" placeholder="登录密码">
+                </div>
+                <div class="tg_password">
+                    <i class="iconfont icon-mima"></i>
+                    <input type="password" class="account" id="tg_password" placeholder="确认密码">
+                </div>
+                <div class="reg_btn">立即注册</div>
+                <span  class="return_log">返回登录</span>
+            </div> -->
+        </div>
+		<!-- <div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+							<div class="space-100"></div>
+							<div class="center">
+		              					<div class="icon-logo"><img src="/Images/logo-admin.png"></div>
+								<h1 class="mackes-title">物流管理系统</h1>
+							</div>
+		
+							<div class="space-6"></div>
+		
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="ace-icon fa fa-lock blue"></i>
+												请输入登录信息
+											</h4>
+		
+											
+											<form id="signFrom" action="__URL__/signin.html">
+												<fieldset>
+						                        	<label id="error-speace" class="block clearfix">
+						                            
+						                            
+						                          	</label>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" id="Username" name="Username" placeholder="登录名" />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+		
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" id="Password" name="Password" placeholder="登录密码" />
+															<i class="ace-icon fa fa-key"></i>
+														</span>
+													</label>
+													<label class="block clearfix">
+														<span class="input-icon input-icon-right">
+															<input type="text" class="form-control" style="width:100px;" id="Code" name="Code" placeholder="验证码" maxlength="4" autocomplete="off" />
+															<i class="ace-icon fa fa-leaf"></i>
+														</span>
+		                            <span><img src="" class="vcode" /></span>
+													</label>
+													<div class="space"></div>
+		
+													<div class="clearfix">
+														
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+															<i class="ace-icon fa fa-key"></i>
+															安全登录
+														</button>
+													</div>
+		
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+		
+											
+										</div>/widget-main
+										
+										<div class="toolbar clearfix">
+											<div>
+												<a href="#" data-target="#forgot-box" class="forgot-password-link">
+													<i class="ace-icon fa fa-arrow-left"></i>
+													忘记密码
+												</a>
+											</div>
+		
+											<div>
+												<a href="#" data-target="#signup-box" class="user-signup-link">
+													注册新用户
+													<i class="ace-icon fa fa-arrow-right"></i>
+												</a>
+											</div>
+										</div>
+										
+									</div>/widget-body
+								</div> -->
+								<!-- /login-box -->
+
+		<!-- <div id="signup-box" class="signup-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header green lighter bigger">
+												<i class="ace-icon fa fa-users green"></i>
+												注册新用户
+											</h4>
+								
+											<div class="space-6"></div>
+											<p> 填写您的登录信息: </p>
+								
+											
+												<fieldset>
+													<div class="block clearfix">
+														<label class="inline">
+															<input type="radio" checked="checked" name="UserType" value="总仓" class="ace">
+															<span class="lbl"> 总仓</span>
+														</label>
+														&emsp;
+														<label class="inline">
+															<input type="radio" name="UserType" value="DC" class="ace">
+															<span class="lbl"> DC</span>
+														</label>
+														&emsp;
+														<label class="inline">
+															<input type="radio" name="UserType" value="承运商" class="ace">
+															<span class="lbl"> 承运商</span>
+														</label>
+													</div>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" name="Email" class="form-control" placeholder="登录邮箱" />
+															<i class="ace-icon fa fa-envelope"></i>
+														</span>
+													</label>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" name="Password" class="form-control" placeholder="登录密码" />
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+													</label>
+								
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" name="PasswordCheck" class="form-control" placeholder="确认密码" />
+															<i class="ace-icon fa fa-retweet"></i>
+														</span>
+													</label>
+								
+													<div class="space-24"></div>
+								
+													<div class="clearfix">
+														<button type="reset" class="width-30 pull-left btn btn-sm">
+															<i class="ace-icon fa fa-refresh"></i>
+															<span class="bigger-110">重置</span>
+														</button>
+								
+														<button type="button" class="width-65 pull-right btn btn-sm btn-success" id="btn_reg">
+															<span class="bigger-110">立即注册</span>
+								
+															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>
+								
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												<i class="ace-icon fa fa-arrow-left"></i>
+												返回登录
+											</a>
+										</div>
+									</div>/.widget-body
+								</div>/.signup-box
+								
+								<div id="forgot-box" class="forgot-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header red lighter bigger">
+												<i class="ace-icon fa fa-key"></i>
+												找回密码
+											</h4>
+								
+											<div class="space-6"></div>
+											<p>
+												输入您注册时使用的邮箱地址找回密码
+											</p>
+								
+											method="post">
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" placeholder="邮箱地址" />
+															<i class="ace-icon fa fa-envelope"></i>
+														</span>
+													</label>
+								
+													<div class="clearfix">
+														<button type="button" class="width-auto pull-right btn btn-sm btn-danger">
+															<i class="ace-icon fa fa-lightbulb-o"></i>
+															<span class="bigger-110">发送验证邮件</span>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>/.widget-main
+								
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												返回登录
+												<i class="ace-icon fa fa-arrow-right"></i>
+											</a>
+										</div>
+									</div>/.widget-body
+								</div>/.forgot-box -->
+
+		<!-- 
+							</div>/position-relative
+						</div>
+					</div>/.col
+				</div>/.row
+			</div>
+		</div>/.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__SKIN__/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='__SKIN__/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<!--[if lte IE 8]>
+		<script type="text/javascript">
+			window.onload = function() {
+				window.onresize = function(){
+				var w = $('.tg_log').width();
+				var w1= $('body').width();
+				if(w1 < 600) {
+					$('.tg_log').css('margin-left', -w / 2);
+				}	
+			}		
+			}
+		</script>
+	<![endif]-->
+
+	<!-- -------------------------------------------------------------------------------------------------- -->
+	<script type="text/javascript">
+		if("ontouchend" in document) document.write("<script src='__SKIN__/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+	</script>
+
+	<!-- inline scripts related to this page -->
+	<script src="__SKIN__/assets/js/jquery.form.js"></script>
+	<script src="__SKIN__/assets/layer/layer.js"> </script>
+	<script type="text/javascript">
+		jQuery(function($) {
+
+			var vcode_src = "{:url('dashboard/publics/verify')}";
+
+			var userName = $('inpur[name=Username]').val();
+			var password = $('inpur[name=Password]').val();
+			var code = $('inpur[name=Code]').val();
+
+			$('#signFrom').on('submit', function() {
+				$('.submit_btn').css('background','#C60220')
+				var error = false;
+				var str = '';
+				str = $('#Username').val();
+				str = $.trim(str);
+				if(str.length <= 0) {
+						//$('#Username').parents('label').addClass('has-error');
+						//show_error('请填写用户名！');
+						$('#Username').addClass('error');
+						$('#Username').attr('placeholder', '请填写用户账号');
+						layer.msg('请填写用户账号',{time:1500});
+						error = true;
+					}
+					str = $('#Password').val();
+					str = $.trim(str);
+					if(str.length <= 0) {
+						//$('#Password').parents('label').addClass('has-error');
+						//show_error('请填写登录密码！');
+						$('#Password').addClass('error');
+						$('#Password').attr('placeholder', '请填写登录密码');
+						layer.msg('请填写登录密码',{time:1500});
+						error = true;
+					}
+					str = $('#Code').val();
+					str = $.trim(str);
+					if(str.length !== 4) {
+						//$('#Code').parents('label').addClass('has-error');
+						//show_error('请填写验证码！');
+						$('#Code').addClass('error');
+						$('#Code').attr('placeholder', '请填写验证码');
+						layer.msg('请填写正确的验证码',{time:1500});
+						error = true;
+					}
+					if(error == true) {
+						return false;
+					}
+					$('#signFrom').ajaxSubmit({
+						type: 'post',
+						dataType: 'json',
+						success: function(json) {
+							if(json.ErrorCode == 0) {
+								window.location.href = json.Href;
+							} else {
+								replace_vcode();
+								layer.msg(json.ErrorMsg,{time:1500});
+								//alert(json.ErrorMsg);
+							}
+						}
+					});
+
+					return false;
+				});
+
+			$('img.vcode').click(function() {
+				replace_vcode();
+			});
+
+			function replace_vcode() {
+				var vcode_start = vcode_src + '?rand=' + Math.random(100) * 100;
+				$('.vcode').attr('src', vcode_start);
+			}
+
+				// function show_error(str){
+				// 	var html='<label class="alert alert-danger block">'+
+				//                      '<strong><i class="icon-remove"></i></strong><span>'+str+'</span>'+
+				//                      '<button type="button" class="close" data-dismiss="alert">'+
+				//                          '<i class="ace-icon fa fa-remove"></i>'+
+				//                        '</button>'+
+				//                      '</label>';
+
+				// 	$('#error-speace').append(html);
+				// }
+
+				// $(document).on('click','i.fa-remove',function(){
+				// 	$(this).parent().parent().remove();
+				// });
+
+				// $('#btn_reg').on('click',function () {
+				// 	$('#reg_form').ajaxSubmit({
+				// 		type:'POST',
+				// 		dataType:'json',
+				// 		success:function (res) {
+				// 			alert(res.ErrorMsg);
+				// 		}
+				// 	})
+				// });
+				//setTimeout(replace_vcode(),1000);
+				replace_vcode();
+			});
+		jQuery(function($) {
+			$(document).on('click', '.toolbar a[data-target]', function(e) {
+				e.preventDefault();
+				var target = $(this).data('target');
+					$('.widget-box.visible').removeClass('visible'); //hide others
+					$(target).addClass('visible'); //show target
+				});
+		});
+			//you don't need this, just used for changing background
+			jQuery(function($) {
+				$('#btn-login-dark').on('click', function(e) {
+					$('body').attr('class', 'login-layout');
+					$('#id-text2').attr('class', 'white');
+					$('#id-company-text').attr('class', 'blue');
+					e.preventDefault();
+				});
+				$('#btn-login-light').on('click', function(e) {
+					$('body').attr('class', 'login-layout light-login');
+					$('#id-text2').attr('class', 'grey');
+					$('#id-company-text').attr('class', 'blue');
+					e.preventDefault();
+				});
+				$('#btn-login-blur').on('click', function(e) {
+					$('body').attr('class', 'login-layout blur-login');
+					$('#id-text2').attr('class', 'white');
+					$('#id-company-text').attr('class', 'light-blue');
+					e.preventDefault();
+				});
+
+			});
+		</script>
+	</body>
+
+	</html>
